@@ -25,7 +25,7 @@ let keys = "";
 elementLoop:
   for (let i = 0; i < keyfields.length; i++) {
     let key = keyfields[i];
-    if (key !== "Reveal your Steam key") {
+    if (key.innerText !== "Reveal your Steam key") {
       keys += key.innerText + "\n";
     }
   }
