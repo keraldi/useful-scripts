@@ -25,13 +25,13 @@ let keys = "";
 elementLoop:
   for (let i = 0; i < keyfields.length; i++) {
     let key = keyfields[i];
-    if (key !=== "Reveal your Steam key") {
+    if (key !== "Reveal your Steam key") {
       keys += key.innerText + "\n";
     }
   }
 navigator.permissions.query({name: "clipboard-write"}).then(result => { // required query to allow copying to clipboard, currently incompatible with firefox
   if (result.state == "granted" || result.state == "prompt") {
     /* write to the clipboard now */
-        textToClipboard(keys);
+        copyToClipboard(keys);
   }
 });
