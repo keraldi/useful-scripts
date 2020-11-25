@@ -2,7 +2,7 @@
 * humble_keyfetcher.js
 *
 * Description:
-*   Fetches revealed keys/entitlements from https://www.humblebundle.com/home/keys
+*   Fetches revealed keys/entitlements from https://www.humblebundle.com/home/keys or the monthly claim pages
 *   and puts them into the clipboard. Works in chromium-based browsers.
 *   Useful for ASF-Bot or Enhanced Steam bulk key activation prompt.
 * 
