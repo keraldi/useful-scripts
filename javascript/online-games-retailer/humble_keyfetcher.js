@@ -12,7 +12,7 @@
 **/
 
 function copyToClipboard(string) {
-    var dummy = document.createElement("textarea");
+    let dummy = document.createElement("textarea");
     document.body.appendChild(dummy);
     dummy.value = string;
     dummy.select();
@@ -20,11 +20,11 @@ function copyToClipboard(string) {
     document.body.removeChild(dummy);
 }
 
-var keyfields = document.querySelectorAll("[class*=keyfield-value]"); // "keyfield-value" is the div class name holding the key(s)
-var keys = "";
+let keyfields = document.querySelectorAll("[class*=keyfield-value]"); // "keyfield-value" is the div class name holding the key(s)
+let keys = "";
 elementLoop:
-  for (var i = 0; i < keyfields.length; i++) {
-    var key = keyfields[i];
+  for (let i = 0; i < keyfields.length; i++) {
+    let key = keyfields[i];
     keys += key.innerText + "\n";
   }
 navigator.permissions.query({name: "clipboard-write"}).then(result => { // required query to allow copying to clipboard, currently incompatible with firefox
