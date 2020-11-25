@@ -20,4 +20,4 @@ Please file an issue if a script does not work or you have a suggestion to impro
 # Current scripts
 ### JavaScript
 
- - humble_keyfetcher.js (copies revealed keys from `https://www.humblebundle.com/home/keys` to clipboard)
+ - humble_keyfetcher.js (copies revealed keys from https://www.humblebundle.com/home/keys to clipboard)
