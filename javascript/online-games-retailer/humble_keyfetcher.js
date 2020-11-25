@@ -1,8 +1,15 @@
-// Works in all chromium-based-browsers
-// If executed in the console, it copies all revealed keys from 
-// https://www.humblebundle.com/home/keys to the clipboard
-// which can then be pasted to be activated into an ASF-Bot or
-// Enhanced Steam bulk key activation prompt
+/**
+* humble_keyfetcher.js
+*
+* Description:
+*   Fetches revealed keys/entitlements from https://www.humblebundle.com/home/keys
+*   and puts them into the clipboard. Works in chromium-based browsers.
+*   Useful for ASF-Bot or Enhanced Steam bulk key activation prompt.
+* 
+* Usage:
+*   Execute in console on https://www.humblebundle.com/home/keys.
+*   Allow clipboard access if requested. Paste clipboard content where desired.
+**/
 
 function copyToClipboard(string) {
     var dummy = document.createElement("textarea");
