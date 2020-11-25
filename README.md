@@ -6,10 +6,13 @@ A random collection of random useful scripts for random purposes
 # Project Structure
 As of now, subject to change if the repository grows (tech-debt)  
 
+```
 Language  
 |- Project/site/topic  
     |- Scripts  
     
+```
+
 # Guidelines
 
 Feel free to drop a PR if you want to add scripts that you think have a place here or improve existing ones.  
