@@ -1,0 +1,54 @@
+version: '3'
+
+volumes:
+  nextcloud:
+
+services:
+  db:
+    image: postgres:10.12-alpine # use version 10.12 of postgres, still works with pgadmin3
+    restart: always
+    networks:
+      - default
+    # Postgres port 5432 is open for access, meaning that nextcloud (and any other
+    # service in this docker) should access postgres over port 5432.
+    # However, this port is *exposed* to the outside world as 5433 and is mapped 
+    # to 5432.
+    ports:
+      - 5433:5432 # expose 5433 on host and sent to 5432 in container
+    volumes:
+      - ./postres:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_DB=nextcloud_db
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=SetAPasswordHere
+
+  app:
+    image: nextcloud
+    restart: always
+    networks:
+      - web
+      - default
+    ports:
+      - 8088:80
+    volumes:
+      - ./app:/var/www/html
+    environment:
+      - POSTGRES_HOST=nextcloud_db_1 # service name for postgres as assigned by Docker
+      - POSTGRES_DB=nextcloud_db
+      - POSTGRES_USER=postgres # will access postgres over 5432
+      - POSTGRES_PASSWORD=UseSetPasswordHere
+    depends_on:
+      - db
+    labels:
+      - "traefik.enable=true"
+      - "traefik.frontend.rule=Host:subdomain.yourdomain.tld"
+      - "traefik.port=80"
+
+networks:
+  default:
+    external:
+      name: nextcloud
+  web:
+    external: true
+
+
